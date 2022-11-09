@@ -1,5 +1,5 @@
 Tyre {size, brand, cost_price, list_price, availability, rating, supplier, model, classification}
 Rim {size, brand, id, width, cost_price, list_price, resigtrationNo, supplier, model, classification}
-Store {ABN, address}
+Store {ABN, address, bank}
 Employees {employeeID, first_name, last_name, email, phone, job_title, hire_date}
 
