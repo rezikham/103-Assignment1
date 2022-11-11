@@ -1,6 +1,28 @@
-Tyre {size, brand, cost_price, list_price, availability, rating, supplier, model, classification}
-Rim {size, brand, id, width, cost_price, list_price, resigtrationNo, supplier, model, classification}
-Store {ABN, address, bank}
-Employees {employeeID, first_name, last_name, email, phone, job_title, hire_date}
-Customer {first_name, last_name, phone, email, address, payment_info}
+Employee { employee_data, staff_ID, first_name, last_name, email, phone_no, job_title, hire_date, monthly_salary}
+
+Inventory{ tyres, rims}
+
+Tyres{ tyre_id , tyre_size, tyre_ brand, tyre_ stock, tyre_price, tyre_review}
+
+Rims{rim_id, rim_size, rime_brand, rim_stock, rim_price, rim_review}
+
+Customer {customer_id, name, customer_postcode, email, contact_no, security_question, password, registration, account_close_date}
+
+Car {registration_plate, customer_id, rim_size, tyre_size, car_make, car_year, car_brand}
+
+Store_page { car, store_location, product_page}
+
+product_page { products, tyres, rims, purchase_page}
+
+Purchase_confirmation { customer_id, selected_products,rims_price,tyres_price, service_type, payment_page}
+
+Service_type { delivery, onsite_collection, onsite_installation}
+
+Payment_page {payment_option, credit_card_information, payment_confirmation, card_info_storage, card_info_no_storage, dispatch_info, purchase_date, invoice_ID}
+
+Dispacth_info { product_purchase_info, purchase_status}
+
+Purchase_status { pending, ready_for_collection_, dispatched, canceled}
+
+Record { record_id, customer_id, employee_id, store_id, invoice_id, purchase_date}
 
