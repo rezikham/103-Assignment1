@@ -1,19 +1,30 @@
-Product { SKU, storeID, price, supplier }
-	Tyre { tyreID, SKU, wheelSize, type, brand, width, supplier, cost/list price, ratings, reviews, availability } 
-	Rim { rimID, SKU, wheelSize, type, brand, width, supplier, cost/list price, ratings, reviews, availability }
+Product { SKU, storeID, wheelSize, type{:tblProductType}, cost/list price, supplier, brand, rating, review }
+
+Tyre { tyreID, SKU, rimSize, brand, name, width, diameter, aspect ratio, load, speed, supplier, cost price, list price, rating, reviews} 
+
+Rim { rimID, SKU, rimSize, PCD, offset, load rating, centre bore, supplier, list price, cost price, ratings, reviews}
+
+Availability { availabilityID, storeID, SKU, amount }
+
+RimSize { rimSize, width, diameter }
+
+Car { registrationPlate, customerID, rimSize, make, model, year }
+
+Customer { customerID, name, address, email, contactNumber, securityQuestion, password, registrationDate, accountCloseDate }
 	
-WheelSize { wheelSize, width }
+Sales Order { invoiceID, SKU, customerID, employeeID, storeID, dispatchID, date, price, status }
 
-Car { registrationPlate, wheelSize, make, model, year }
+Store { storeID, availibiltyID, address, type{:tblStoreType} }
 
-Customer { customerID, registrationPlate, name, address, email, contactNumber, password, securityQuestion, registrationDate, accountCloseDate, paymentInformation }
+Employee { employeeID, storeID, name, age, email, phoneNumber, job title{:tblTitle}, hire date, salary} 
 
-Sales Order { invoiceID, SKU, customerID, employeeID, storeID, date, price, status, shippingInfo }
+Dispatch { dispatchID, invoiceID, employeeID, date, status, type{:tblDispatchType}
+	
+Promotions { promotionID, SKU, date, discount } 
 
-Employees { employeeID, storeID, name, age, email, phoneNumber, job title, hire date, section, salary}
+Services { serviceID, employeeID, customerID, type{:tblServiceType}, price }
 
-Store { storeID, location, hours }
+Record { recordID, invoiceID, customerID, employeeID, storeID,  type{:tblRecordType}, date }
 
-Services { serviceID, employeeID, customerID, storeID, customerID, type, date }
 
 
