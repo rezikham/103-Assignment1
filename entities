@@ -1,8 +1,8 @@
 Product { SKU, type{:tblProductType} }
 
-Tyre { tyreID, SKU, rimSize, brand, name, width, diameter, aspect ratio, load, speed, supplier, cost price, list price, rating, reviews} 
+Tyre { tyreID, SKU, rimSize, brand, name, width, diameter, aspect_ratio, load, speed, supplier, cost_price, list_price, rating, reviews} 
 
-Rim { rimID, SKU, rimSize, PCD, offset, load rating, centre bore, supplier, list price, cost price, ratings, reviews}
+Rim { rimID, SKU, rimSize, PCD, offset, load_rating, centre_bore, supplier, list_price, cost_price, ratings, reviews}
 
 Availability { storeID, SKU, amount } – weak entity 
 
@@ -16,7 +16,7 @@ Sales Order { invoiceID, SKU, customerID, employeeID, storeID, dispatchID, date,
 
 Store { storeID, availibiltyID, address, type{:tblStoreType} }
 
-Employee { employeeID, storeID, name, age, email, phoneNumber, job title{:tblTitle}, hire date, salary} 
+Employee { employeeID, storeID, name, age, email, phoneNumber, job_title{:tblTitle}, hire date, salary} 
 
 Dispatch { dispatchID, invoiceID, employeeID, date, status, type{:tblDispatchType}
 	
@@ -24,7 +24,7 @@ Promotions { promotionID, SKU, date, discount }
 
 Services { serviceID, employeeID, customerID, type{:tblServiceType}, price }
 
-Record { recordID, invoiceID, customerID, employeeID, storeID,  type{:tblRecordType}, date }
+Record { recordID, invoiceID, customerID, employeeID, storeID, type{:tblRecordType}, date }
 
 
 
