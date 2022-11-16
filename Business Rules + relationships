@@ -58,14 +58,19 @@ Service:Employee(M:1)
 	A service can be conducted by one employee
 	An employee can conduct many services
 
-Record : Dispatch (1:1)
+Record:Dispatch (1:1)
 	A dispatch will generate a Record
 	a record will record a dispatch info
 
-Employee : Dispatch (1:M)
+Employee:Dispatch (1:M)
 	An employee can have many dispatches
 	A dispatch can only be done by one employee
 
 Rim:Availability (M:M)
 	A rim can be available at many different stores
 	A store can have many rims' availability
+
+Store:Promotion (1:M)
+	A store can have many promotions
+	A promotion can be used at one store
+
