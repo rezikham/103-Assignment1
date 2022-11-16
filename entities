@@ -25,8 +25,3 @@ Promotions { promotion_ID, SKU, name, date, discount }
 Services { service_ID, employee_ID, customer_ID, SKU,  type{:tbl_service_type}, price }
 
 Record { record_ID, invoice_ID, customer_ID, employee_ID, store_ID,  type{:tbl_record_type}, date }
-
-
-
-
-
