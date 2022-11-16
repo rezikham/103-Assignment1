@@ -4,8 +4,6 @@ Payment_page {payment_option, credit_card_information, payment_confirmation, car
 
 Dispacth_info { product_purchase_info, purchase_status}
 
-Purchase_status { pending, ready_for_collection_, dispatched, canceled}
-
 Product { SKU, type{:tbl_product_type} }
 
 Tyre { SKU, rim_size, brand, name, width, diameter, aspect_ratio, load, speed, supplier, cost_price, list_price, rating, reviews} – weak entity 
@@ -20,7 +18,7 @@ Car { registration_plate, customer_ID, rim_size, make, model, year }
 
 Customer { customer_ID, name, address, email, contact_number, security_question, password, registration_date, account_close_date }
 	
-Sales_Order { invoice_ID, SKU, customer_ID, employee_ID, store_ID, dispatch_ID, date, price}
+Sales_Order { invoice_ID, SKU, customer_ID, employee_ID, store_ID, dispatch_ID, date, price, payment_status{:tbl_payment_status}}
 
 Store { store_ID, address, type{:tbl_store_type} }
 
