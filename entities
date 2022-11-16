@@ -1,21 +1,3 @@
-Employee { employee_data, staff_ID, first_name, last_name, email, phone_no, job_title, hire_date, monthly_salary}
-
-Inventory{ tyres, rims}
-
-Tyres{ tyre_id , tyre_size, tyre_ brand, tyre_ stock, tyre_price, tyre_review}
-
-Rims{rim_id, rim_size, rime_brand, rim_stock, rim_price, rim_review}
-
-Customer {customer_id, name, customer_postcode, email, contact_no, security_question, password, registration, account_close_date}
-
-Car {registration_plate, customer_id, rim_size, tyre_size, car_make, car_year, car_brand}
-
-Store_page { car, store_location, product_page}
-
-product_page { products, tyres, rims, purchase_page}
-
-Purchase_confirmation { customer_id, selected_products,rims_price,tyres_price, service_type, payment_page}
-
 Service_type { delivery, onsite_collection, onsite_installation}
 
 Payment_page {payment_option, credit_card_information, payment_confirmation, card_info_storage, card_info_no_storage, dispatch_info, purchase_date, invoice_ID}
@@ -26,3 +8,30 @@ Purchase_status { pending, ready_for_collection_, dispatched, canceled}
 
 Record { record_id, customer_id, employee_id, store_id, invoice_id, purchase_date}
 
+Product { SKU, type{:tbl_product_type} }
+
+Tyre { SKU, rim_size, brand, name, width, diameter, aspect_ratio, load, speed, supplier, cost_price, list_price, rating, reviews} – weak entity 
+
+Rim { SKU, rim_size, brand, name, PCD, offset, load_rating, centre_bore, supplier, list_price, cost_price, ratings, reviews} – weak entity
+
+Availability { store_ID, SKU, amount } – weak entity 
+
+Rim_Size { rim_size, width, diameter }
+
+Car { registration_plate, customer_ID, rim_size, make, model, year }
+
+Customer { customer_ID, name, address, email, contact_number, security_question, password, registration_date, account_close_date }
+	
+Sales_Order { invoice_ID, SKU, customer_ID, employee_ID, store_ID, dispatch_ID, date, price}
+
+Store { store_ID, address, type{:tbl_store_type} }
+
+Employee { employee_ID, store_ID, name, age, email, phone_number, job_title{:tbl_title}, hire_date, salary} 
+
+Dispatch { dispatch_ID, invoice_ID, employee_ID, date, status, type{:tbl_dispatch_type} }
+	
+Promotions { promotion_ID, SKU, name, date, discount } 
+
+Services { service_ID, employee_ID, customer_ID, SKU,  type{:tbl_service_type}, price }
+
+Record { record_ID, invoice_ID, customer_ID, employee_ID, store_ID,  type{:tbl_record_type}, date }
