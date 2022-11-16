@@ -1,3 +1,13 @@
+Service_type { delivery, onsite_collection, onsite_installation}
+
+Payment_page {payment_option, credit_card_information, payment_confirmation, card_info_storage, card_info_no_storage, dispatch_info, purchase_date, invoice_ID}
+
+Dispacth_info { product_purchase_info, purchase_status}
+
+Purchase_status { pending, ready_for_collection_, dispatched, canceled}
+
+Record { record_id, customer_id, employee_id, store_id, invoice_id, purchase_date}
+
 Product { SKU, type{:tbl_product_type} }
 
 Tyre { SKU, rim_size, brand, name, width, diameter, aspect_ratio, load, speed, supplier, cost_price, list_price, rating, reviews} – weak entity 
