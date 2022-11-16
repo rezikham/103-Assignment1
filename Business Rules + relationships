@@ -66,9 +66,9 @@ Employee:Dispatch (1:M)
 	An employee can have many dispatches
 	A dispatch can only be done by one employee
 
-Rim:Availability (M:M)
-	A rim can be available at many different stores
-	A store can have many rims' availability
+Product:Store (M:1)
+	A product can be at one stores
+	A store can have many products
 
 Store:Promotion (1:M)
 	A store can have many promotions
