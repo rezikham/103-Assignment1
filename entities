@@ -1,8 +1,8 @@
-Product { SKU, type{:tblProductType} }
+Product { SKU, type{:tbl_product_type} }
 
-Tyre { tyre_ID, SKU, rim_size, brand, name, width, diameter, aspect_ratio, load, speed, supplier, cost_price, list_price, rating, reviews} 
+Tyre { SKU, rim_size, brand, name, width, diameter, aspect_ratio, load, speed, supplier, cost_price, list_price, rating, reviews} – weak entity 
 
-Rim { rim_ID, SKU, rim_size, PCD, offset, load_rating, centre_bore, supplier, list_price, cost_price, ratings, reviews}
+Rim { SKU, rim_size, brand, name, PCD, offset, load_rating, centre_bore, supplier, list_price, cost_price, ratings, reviews} – weak entity
 
 Availability { store_ID, SKU, amount } – weak entity 
 
@@ -12,19 +12,20 @@ Car { registration_plate, customer_ID, rim_size, make, model, year }
 
 Customer { customer_ID, name, address, email, contact_number, security_question, password, registration_date, account_close_date }
 	
-Sales_Order { invoice_ID, SKU, customer_ID, employee_ID, store_ID, dispatch_ID, date, price, status }
+Sales Order { invoice_ID, SKU, customer_ID, employee_ID, store_ID, dispatch_ID, date, price}
 
-Store { store_ID, availibilty_ID, address, type{:tbl_Store_Type} }
+Store { store_ID, address, type{:tbl_store_type} }
 
-Employee { employee_ID, store_ID, name, age, email, phone_number, job title{:tbl_Title}, hire date, salary} 
+Employee { employee_ID, store_ID, name, age, email, phone_number, job_title{:tbl_title}, hire_date, salary} 
 
-Dispatch { dispatch_ID, invoice_ID, employee_ID, date, status, type{:tbl_Dispatch_Type}
+Dispatch { dispatch_ID, invoice_ID, employee_ID, date, status, type{:tbl_dispatch_type}
 	
-Promotion { promotion_ID, SKU, date, discount } 
+Promotions { promotion_ID, SKU, name, date, discount } 
 
-Services { service_ID, employee_ID, customer_ID, type{:tbl_Service_Type}, price }
+Services { service_ID, employee_ID, customer_ID, SKU,  type{:tbl_service_type}, price }
 
-Record { record_ID, invoice_ID, customer_ID, employee_ID, store_ID, type{:tbl_Record_Type}, date }
+Record { record_ID, invoice_ID, customer_ID, employee_ID, store_ID,  type{:tbl_record_type}, date }
+
 
 
 
