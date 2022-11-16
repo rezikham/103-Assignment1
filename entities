@@ -12,13 +12,13 @@ Car { registration_plate, customer_ID, rim_size, make, model, year }
 
 Customer { customer_ID, name, address, email, contact_number, security_question, password, registration_date, account_close_date }
 	
-Sales Order { invoice_ID, SKU, customer_ID, employee_ID, store_ID, dispatch_ID, date, price}
+Sales_Order { invoice_ID, SKU, customer_ID, employee_ID, store_ID, dispatch_ID, date, price}
 
 Store { store_ID, address, type{:tbl_store_type} }
 
 Employee { employee_ID, store_ID, name, age, email, phone_number, job_title{:tbl_title}, hire_date, salary} 
 
-Dispatch { dispatch_ID, invoice_ID, employee_ID, date, status, type{:tbl_dispatch_type}
+Dispatch { dispatch_ID, invoice_ID, employee_ID, date, status, type{:tbl_dispatch_type} }
 	
 Promotions { promotion_ID, SKU, name, date, discount } 
 
