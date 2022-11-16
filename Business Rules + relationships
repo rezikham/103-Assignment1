@@ -1,45 +1,71 @@
 Product:Customer (M:1)
 	A Product can be bought by one customer
 	A customer can buy many products
+
 Product:Store(M:1)
 	A product can be found in one store
 	A store can have many products
+
 Product:Tyre(1:1)
 	A product can be none or 1 tyres
 	A tyre is one product (has one SKU)
+
 Product:Rim(1:1)
 	A product can be none or 1 rims
 	A rim is one product (has one SKU)
+
 Tyre:Rim_Size(M:1)
 	A tyre can have one wheel size
 	A wheel size can hold many tyres
+
 Rim:Rim_Size(M:1)
 	A rim can have one wheel size
 	A wheel size can hold many rims
+
 Car:Rim_Size(M:1)
 	A car can have one wheel size
 	A wheel size can be on many cars
+
 Customer:Car(1:M)
 	A customer can have many cars
 	A car can have one customer
+
 Customer:Sales_Order(1:M)
 	A customer can have many sales orders
 	A sales order can be associated with one customer
+
 Sales_Order:Product(1:M)
 	A sales order can hold many products
 	A product can have 1 or no sales
+
 Sales_Order:Employee(M:1)
 	A sales order can be done by one employee
 	An employee can do many sales orders
+
 Sales_Order:Customer (M:1)
 	A sales order can have only one customer
 	A customer can have many sales orders
+
 Sales_Order:Store(M:1)
 	A sales order can be held at one store
 	A store can have many sales orders
+
 Employee:Store(M:1)
 	An employee can work at one store
 	A store can hire many employees
+
 Service:Employee(M:1)
 	A service can be conducted by one employee
 	An employee can conduct many services
+
+Record : Dispatch (1:1)
+	A dispatch will generate a Record
+	a record will record a dispatch info
+
+Employee : Dispatch (1:M)
+	An employee can have many dispatches
+	A dispatch can only be done by one employee
+
+Rim:Availability (M:M)
+	A rim can be available at many different stores
+	A store can have many rims' availability
