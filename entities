@@ -1,31 +1,27 @@
-Product { SKU, type{:tblProductType} }
+Product { SKU, type{:tbl_product_type} }
 
-Tyre { tyreID, SKU, rimSize, brand, name, width, diameter, aspect_ratio, load, speed, supplier, cost_price, list_price, rating, reviews} 
+Tyre { SKU, rim_size, brand, name, width, diameter, aspect_ratio, load, speed, supplier, cost_price, list_price, rating, reviews} – weak entity 
 
-Rim { rimID, SKU, rimSize, PCD, offset, load_rating, centre_bore, supplier, list_price, cost_price, ratings, reviews}
+Rim { SKU, rim_size, brand, name, PCD, offset, load_rating, centre_bore, supplier, list_price, cost_price, ratings, reviews} – weak entity
 
-Availability { storeID, SKU, amount } – weak entity 
+Availability { store_ID, SKU, amount } – weak entity 
 
-RimSize { rimSize, width, diameter }
+Rim_Size { rim_size, width, diameter }
 
-Car { registrationPlate, customerID, rimSize, make, model, year }
+Car { registration_plate, customer_ID, rim_size, make, model, year }
 
-Customer { customerID, name, address, email, contactNumber, securityQuestion, password, registrationDate, accountCloseDate }
+Customer { customer_ID, name, address, email, contact_number, security_question, password, registration_date, account_close_date }
 	
-Sales Order { invoiceID, SKU, customerID, employeeID, storeID, dispatchID, date, price, status }
+Sales Order { invoice_ID, SKU, customer_ID, employee_ID, store_ID, dispatch_ID, date, price}
 
-Store { storeID, availibiltyID, address, type{:tblStoreType} }
+Store { store_ID, address, type{:tbl_store_type} }
 
-Employee { employeeID, storeID, name, age, email, phoneNumber, job_title{:tblTitle}, hire date, salary} 
+Employee { employee_ID, store_ID, name, age, email, phone_number, job_title{:tbl_title}, hire_date, salary} 
 
-Dispatch { dispatchID, invoiceID, employeeID, date, status, type{:tblDispatchType}
+Dispatch { dispatch_ID, invoice_ID, employee_ID, date, status, type{:tbl_dispatch_type}
 	
-Promotions { promotionID, SKU, date, discount } 
+Promotions { promotion_ID, SKU, name, date, discount } 
 
-Services { serviceID, employeeID, customerID, type{:tblServiceType}, price }
+Services { service_ID, employee_ID, customer_ID, SKU,  type{:tbl_service_type}, price }
 
-Record { recordID, invoiceID, customerID, employeeID, storeID, type{:tblRecordType}, date }
-
-
-
-
+Record { record_ID, invoice_ID, customer_ID, employee_ID, store_ID,  type{:tbl_record_type}, date }
