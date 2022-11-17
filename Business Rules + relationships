@@ -5,29 +5,31 @@ Product:Store(M:1)
 	A product can be found in one store
 	A store can have many products
 Product:Tyre(1:1)
-	A product can be none or 1 tyres
+	A product can be 0 or 1 tyre
 	A tyre is one product (has one SKU)
 Product:Rim(1:1)
-	A product can be none or 1 rims
+	A product can be 0 or 1 rim
 	A rim is one product (has one SKU)
-Tyre:Rim_Size(M:1)
-	A tyre can have one wheel size
-	A wheel size can hold many tyres
-Rim:Rim_Size(M:1)
-	A rim can have one wheel size
-	A wheel size can hold many rims
-Car:Rim_Size(M:1)
-	A car can have one wheel size
-	A wheel size can be on many cars
+
+
+Rim_Size:Tyre (1:M)
+	A rim size can hold many tyres
+A tyre can have one rim size
+Rim_Size:Rim(1:M)
+	A rim size can hold many rims
+	A rim can have one rim size
+Rim_Size:Car (1:M)
+	A rim size can be on many cars
+A car can have one rim size
+
+
 Customer:Car(1:M)
 	A customer can have many cars
-	A car can have one customer
-Customer:Sales_Order(1:M)
-	A customer can have many sales orders
-	A sales order can be associated with one customer
+	A car can be owned by one customer
+
 Sales_Order:Product(1:M)
 	A sales order can hold many products
-	A product can have 1 or no sales
+	A product can have 0 or 1 sales orders
 Sales_Order:Employee(M:1)
 	A sales order can be done by one employee
 	An employee can do many sales orders
@@ -37,9 +39,48 @@ Sales_Order:Customer (M:1)
 Sales_Order:Store(M:1)
 	A sales order can be held at one store
 	A store can have many sales orders
-Employee:Store(M:1)
-	An employee can work at one store
+Sales_Order:Dispatch(1:1)
+	A sales order can have one dispatch info
+	A dispatch ID can be associated with one sales order
+
+
+
+Employee:Store(M:M)
+	An employee can work at many stores
 	A store can hire many employees
+	{
+		Employee:Roster(M:1)
+		An employee can have one roster schedule
+		A stores roster can hold many employees
+		Store:Roster(1:1)
+		A store can have one roster schedule
+		A roster can be associated with one store
+	}
+Employee:Dispatch(1:M)
+	An employee can handle many dispatches
+	A dispatch can be handled by one employee
+
+Promotion:Product(M:M)
+	A promotion can discount many products
+	A product can be involved with many promotions
+
+
 Service:Employee(M:1)
 	A service can be conducted by one employee
 	An employee can conduct many services
+Service:Customer(M:1)
+	A service can be for 0 or 1 customers
+	A customer can have many services
+
+Record:Sales_Order(1:1)
+	A record can be of one sales order	
+	A sales order can be recorded on one record
+Record:Customer(1:1)
+	A record can be of one customer registration
+	A customer can have only one registration 
+Record:Store(M:1)
+	A record can be about one stores details
+	A store can have many records
+Record:Employee(M:1)
+	A record can be about one employee
+	An employee can perform many services to be recorded
